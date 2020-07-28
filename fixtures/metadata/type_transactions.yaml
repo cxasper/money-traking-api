@@ -1,0 +1,13 @@
+- fields:
+    name: income
+    display_name: Ingreso
+    theme_color: '#11AE41'
+  model: api.TypeTransaction
+  pk: 1
+
+- fields:
+    name: spending
+    display_name: Gasto
+    theme_color: '#D32113'
+  model: api.TypeTransaction
+  pk: 2
