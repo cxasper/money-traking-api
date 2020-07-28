@@ -32,7 +32,7 @@ class Account(MetaDataTable):
         settings.AUTH_USER_MODEL, models.CASCADE, null=False)
     currency = models.ForeignKey(
         Currency, models.DO_NOTHING, null=False)
-    amount = models.DecimalField(max_digits=12, decimal_places=2)
+    amount = models.DecimalField(max_digits=12, decimal_places=2, null=True)
 
 
 class TypeTransaction(MetaDataTable):
