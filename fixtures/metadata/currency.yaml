@@ -1,0 +1,21 @@
+- fields:
+    country: PER
+    code: PEN
+    name: sol
+    display_name: Sol peruano
+  model: api.Currency
+  pk: 1
+- fields:
+    country: USA
+    code: USD
+    name: dolar
+    display_name: Dólar estadounidense
+  model: api.Currency
+  pk: 2
+- fields:
+    country: EU
+    code: EUR
+    name: euro
+    display_name: Euro
+  model: api.Currency
+  pk: 3
