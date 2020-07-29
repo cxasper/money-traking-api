@@ -1,6 +1,7 @@
 from django.urls import path
 from rest_framework_jwt.views import ObtainJSONWebToken
 from apps.api.serializers import CustomJWTSerializer
+from apps.api.views import AccountListCreate
 
 
 obtain_jwt_token = ObtainJSONWebToken.as_view(
@@ -10,4 +11,5 @@ obtain_jwt_token = ObtainJSONWebToken.as_view(
 
 urlpatterns = [
     path('login/', obtain_jwt_token, name='login'),
+    path('accounts/', AccountListCreate.as_view(), name='list-accounts'),
 ]

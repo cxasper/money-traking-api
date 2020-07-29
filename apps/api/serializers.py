@@ -4,6 +4,7 @@ from django.contrib.auth.hashers import make_password
 from rest_framework import serializers
 from rest_framework_jwt.serializers import JSONWebTokenSerializer
 from rest_framework_jwt.settings import api_settings
+from apps.api.models import Account
 
 
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
@@ -50,3 +51,14 @@ class CustomJWTSerializer(JSONWebTokenSerializer):
                 return user
         except User.DoesNotExist:
                 return None
+
+
+class AccountSerializer(serializers.ModelSerializer):
+    currency_code = serializers.CharField(
+        source='currency.code', read_only=True)
+    currency_country = serializers.CharField(
+        source='currency.country', read_only=True)
+
+    class Meta:
+        model = Account
+        fields = '__all__'
