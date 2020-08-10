@@ -64,6 +64,15 @@ class AccountSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class AccountDetailSerializer(AccountSerializer):
+    transactions = serializers.SerializerMethodField()
+
+    def get_transactions(self, instance):
+        transactions = instance.transactions.all()
+        serializer = TransactionSerializer(transactions, many=True)
+        return serializer.data
+
+
 class TransactionSerializer(serializers.ModelSerializer):
     type_name = serializers.CharField(
         source='type.name', read_only=True)
