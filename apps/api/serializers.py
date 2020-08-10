@@ -4,7 +4,7 @@ from django.contrib.auth.hashers import make_password
 from rest_framework import serializers
 from rest_framework_jwt.serializers import JSONWebTokenSerializer
 from rest_framework_jwt.settings import api_settings
-from apps.api.models import Account
+from apps.api.models import Account, Transaction
 
 
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
@@ -61,4 +61,17 @@ class AccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Account
+        fields = '__all__'
+
+
+class TransactionSerializer(serializers.ModelSerializer):
+    type_name = serializers.CharField(
+        source='type.name', read_only=True)
+    type_color = serializers.CharField(
+        source='type.theme_color', read_only=True)
+    type_display_name = serializers.CharField(
+        source='type.display_name', read_only=True)
+
+    class Meta:
+        model = Transaction
         fields = '__all__'
