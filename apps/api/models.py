@@ -39,9 +39,10 @@ class TypeTransaction(MetaDataTable):
     theme_color = ColorField(default='#FF0000')
 
 
-class Transaction(MetaDataTable):
+class Transaction(DateTable):
     account = models.ForeignKey(
         Account, models.CASCADE, null=False)
     type = models.ForeignKey(
         TypeTransaction, models.DO_NOTHING, null=False)
     amount = models.DecimalField(max_digits=12, decimal_places=2)
+    description = models.TextField(null=True)
