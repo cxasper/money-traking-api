@@ -7,7 +7,7 @@ Django==3.0.8
 django-colorfield==0.3.2
 django-cors-headers==3.4.0
 django-extensions==3.0.3
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 drf-yasg==1.17.1
 factory-boy==2.12.0
